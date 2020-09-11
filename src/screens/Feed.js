@@ -48,6 +48,12 @@ const Feed = ({navigation}) => {
     setIsRefreshing(true);
   };
 
+  //ToDo
+  //add dog display first three likers.name and an onPress
+  //eventListener that will load all likers handles with an
+  //eventListener to go to their profile. This should apply to comments
+  //and replies too
+
   const renderItem = (item) => (
     <View style={styles.card}>
       <Image
@@ -85,11 +91,6 @@ const Feed = ({navigation}) => {
             </Text>
           </View>
 
-          {/*add dog display first three likers.name and an onPress
-          eventListener that will load all likers handles with an
-          eventListener to go to their profile. This should apply to comments
-          and replies too */}
-
           {/*add dog comments components here */}
           {/*add dog replies here components here */}
         </View>
@@ -109,7 +110,6 @@ const Feed = ({navigation}) => {
   if (data !== null) {
     return (
       <List
-        style={styles.container}
         data={data}
         renderItem={renderItem}
         keyExtractor={data.id}
@@ -127,25 +127,19 @@ const Feed = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-  },
   card: {
     backgroundColor: '#fff2f2',
     marginBottom: 25,
   },
   cardImage: {
-    // width: '100%',
     height: 300,
   },
   cardHeader: {
     padding: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    // justifyContent: 'space-between',
   },
   dogDetailTitle: {
-    // height: 20,
     fontWeight: 'bold',
     fontSize: 12,
     color: 'black',
@@ -156,9 +150,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 10,
   },
   dogDetailText: {
-    // height: 20,
     flex: 0.5,
-    // width: '90%',
     color: 'brown',
     textAlign: 'center',
     fontSize: 11,
