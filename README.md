@@ -12,8 +12,8 @@
   <img src="https://img.shields.io/badge/HTML-5.2-green" style="max-width:50%;">
   <img src="https://img.shields.io/badge/CSS-3.0-blue" style="max-width:50%;">  
   <img src="https://img.shields.io/badge/JavaScript-1.8.5-blue" style="max-width:50%;">
-  <img src="https://img.shields.io/badge/react%20native%20community%20/picker-0.1.10-blue" style="max-width:50%;">
-  <img src="https://img.shields.io/badge/react%20native%20community%20/picker-1.8.5-blue" style="max-width:50%;">
+  <img src="https://img.shields.io/badge/react%20native%20community%20/picker-1.6.6-blue" style="max-width:50%;">
+  <img src="https://img.shields.io/badge/react%20native%20community%20/masked%20view-1.8.5-blue" style="max-width:50%;">
 
 
   
