@@ -45,7 +45,7 @@
   <a target="blank" rel="noopener noreferrer" href="https://github.com/chinomnsoawazie/dogstagram_backend">
     <img src="https://img.shields.io/badge/Backend%20repository-Click%20here-green" style="max-width:50%;">
   </a>
-   <img src="https://img.shields.io/badge/Status-Making%20mobi20commercial%20version-brightgreen" style="max-width:50%;">
+   <img src="https://img.shields.io/badge/Status-Making%20commercial%20version-brightgreen" style="max-width:50%;">
 </p>
 
 <h1 align="center"> Mobile version of DogStagram (iOS and Android)</h1>
