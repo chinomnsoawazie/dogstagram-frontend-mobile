@@ -50,8 +50,44 @@
 
 <h1 align="center"> Mobile version of DogStagram (iOS and Android)</h1>
 
-
-This is the mobile version of Dogstagram on same React Native platform as the the web version for uniformity of user experience. The mobile version comprises of the Android and iOS versions. 
-
-# Progress Notes
+<h1>
+  <a id="table-of-contents" class="anchor" href="#contents">  </a>
+  Table of Contents
+  </h1>
+  
+  <ul>
+    <li><a href="#inspiration">Inspiration</a></li>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#overview">Basic overview</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#goals">Goals</a></li>
+        <li><a href="#challenge">Challenge</a></li>
+      </ul>
+    </li>
+    <li><a href="#demo">Demo</a></li>  
+    <li><a href="#installation">Installation</a>
+      <ul>
+          <li><a href="#prerequisites">Prerequisites</a></li>
+          <li><a href="#frontend-installation">Frontend installation</a></li>
+          <li><a href="#first-start">First start</a></li>
+      </ul>
+    </li>   
+    <li><a href="#summary-of-files">Summary of files</a>
+      <ul>
+          <li><a href="#external-dataset">External dataset</a></li>
+      </ul>
+    </li>
+   <li><a href="#planned-improvements">Planned improvements</a></li>
+   <li><a href="#contact">Contact</a></li>
+   <li><a href="#credits">Credits</a></li>
+ </ul>
+ 
+  <h1 id="inspiration">Inspiration</h1>
+  
+ <p>DogStagram is an app for dogs and their best friends, man (I assume!). An individual can have dogs, and a dog can have many pictures. Social interections such as likes can happen to dogs, thier pictures, comments on their pictures, and replies to comments on their pictures. Intentionally, once someone acquires a dog, they cannot leave them. So, no selling of dogs by individuals.
+ 
+ The commercial version of this app will have these features and more.</p>
+  
+ <a href=#table-of-contents> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
 
