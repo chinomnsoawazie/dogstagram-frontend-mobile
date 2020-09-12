@@ -16,6 +16,7 @@ import {mapping, light} from '@eva-design/eva';
 import {ApplicationProvider, IconRegistry} from 'react-native-ui-kitten';
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
 
+
 import AppNavigator from './src/navigation/AppNavigator';
 
 //Reducers

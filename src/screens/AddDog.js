@@ -14,7 +14,9 @@ import ImagePicker from 'react-native-image-picker';
 import RNPickerSelect from 'react-native-picker-select';
 import {Icon} from 'react-native-ui-kitten';
 import database from '@react-native-firebase/database';
-import uuid from 'uuid-random';
+// import uuid from 'uuid-random';
+import {v4 as uuidv4} from 'uuid';
+
 
 import {dogBreeds} from '../components/DogBreeds';
 import {range} from '../utils/HandyTools';
@@ -83,7 +85,9 @@ const AddDog = ({navigation}) => {
       );
     }
 
-    const id = uuid();
+    // const id = uuid();
+        const id = uuidv4();
+
 
     const dogForUpload = {
       id: id,
