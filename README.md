@@ -18,7 +18,7 @@
   <img src="https://img.shields.io/badge/react%20navigation%20/bottom%20tabs-5.8.0-brightgreen" style="max-width:50%;">
   <img src="https://img.shields.io/badge/react%20navigation%20/native-5.7.3-yellowgreen" style="max-width:50%;">
   <img src="https://img.shields.io/badge/react%20navigation%20/stack-5.9.0-brightgreen" style="max-width:50%;">
-  <img src="https://img.shields.io/badge/ui%kitten%20/eva%20icons-5.0.0-yellowgreen" style="max-width:50%;">
+  <img src="https://img.shields.io/badge/ui%20kitten%20/eva%20icons-5.0.0-yellowgreen" style="max-width:50%;">
   <img src="https://img.shields.io/badge/axios-0.20.0-red" style="max-width:50%;">
   <img src="https://img.shields.io/badge/ReactJS-16.13.1-yellowgreen" style="max-width:50%;">
   <img src="https://img.shields.io/badge/react%20native-0.63.2-lightgrey" style="max-width:50%;">
