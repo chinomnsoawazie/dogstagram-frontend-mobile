@@ -21,9 +21,8 @@
   <img src="https://img.shields.io/badge/ui%kitten%20/eva%20icons-5.0.0-yellowgreen" style="max-width:50%;">
   <img src="https://img.shields.io/badge/axios-0.20.0-red" style="max-width:50%;">
   <img src="https://img.shields.io/badge/ReactJS-16.13.1-yellowgreen" style="max-width:50%;">
-  <img src="https://img.shields.io/badge/Redux%20Thunk-2.3.0-yellowgreen" style="max-width:50%;">
   <img src="https://img.shields.io/badge/react%20native-0.63.2-lightgrey" style="max-width:50%;">
-  <img src="https://img.shields.io/badge/react-native-gesture-handler-1.7.0-blue" style="max-width:50%;">
+  <img src="https://img.shields.io/badge/react%20native%20gesture%20handler-1.7.0-blue" style="max-width:50%;">
   <img src="https://img.shields.io/badge/react%20native%20image%20picker-2.3.3-green" style="max-width:50%;">
   <img src="https://img.shields.io/badge/react%20native%20picker%20select-8.0.0-blue" style="max-width:50%;">
   <img src="https://img.shields.io/badge/react-native-progress-4.1.2-brightgreen" style="max-width:50%;">
