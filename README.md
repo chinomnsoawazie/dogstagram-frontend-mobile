@@ -90,4 +90,30 @@
  The commercial version of this app will have these features and more.</p>
   
  <a href=#table-of-contents> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+ 
+  <h1 id="introduction">Introduction</h1>
+   <h2 id="overview">Basic Overview</h2>
+    <p>User views other users and their dogs. User can view individual dogs too. User can acquire new dogs, like dogs, and/or their individual pictures, leave comments like commments, reply to comments, and like replies to comments.</p>
+    
+   <h2 id="features">Features</h2>
+    <p>Features of the app include the following;
+      <ul> 
+       <li>User can create, edit, and delete an account</li>
+       <li> A logged in user can do the following:
+        <ul>
+         <li>Acqure a dog</li>
+         <li>View other users</li>
+         <li>View dogs</li>
+         <li>Make comments</li>
+         <li>Like comments</li>
+         <li>Reply to comments</li>
+         <li>Like replies to comments</li>
+         <li>View followers of other users</li>
+         <li>View users that likes a comment or reply</li>
+        </ul>
+        </li>
+      </ul>
+    </p>
+    
+  <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
 
