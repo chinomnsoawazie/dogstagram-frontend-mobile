@@ -50,7 +50,6 @@
 
 <h1 align="center"> Mobile version of DogStagram (iOS and Android)</h1>
 
-#
 
 This is the mobile version of Dogstagram on same React Native platform as the the web version for uniformity of user experience. The mobile version comprises of the Android and iOS versions. 
 
