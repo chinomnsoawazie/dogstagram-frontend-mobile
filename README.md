@@ -116,4 +116,21 @@
     </p>
     
   <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+  
+  
+  
+  <h1 id="credits">Credits</h1>
+    <p>
+ <ul>
+  <li><a href="https://jwt.io/introduction/">JWT Auth</a></li>
+  <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+    <li><a href="https://rubyonrails.org/">Rails</a></li>
+  <li><a href="https://rubygems.org/gems/dotenv-rails/versions/2.7.5">dotenv-rails</a></li>
+  <li><a href="https://rubygems.org/gems/bcrypt/versions/3.1.7">Bcrypt</a></li>
+  <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+ </ul>
+</p>
+
+<a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+
 
