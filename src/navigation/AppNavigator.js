@@ -9,6 +9,7 @@ import AddDog from '../screens/AddDog';
 import Feed from '../screens/Feed';
 import Activity from '../screens/Activity';
 import Search from '../screens/Search';
+import SignUpScreen from '../screens/SignUpScreen';
 
 const Stack = createStackNavigator();
 
@@ -40,6 +41,7 @@ export default function AppNavigator() {
           }),
         }}>
         <Stack.Screen name="LoginSignupScreen" component={LoginSignupScreen} />
+        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
         <Stack.Screen name="SignedInUser" component={SignedInUserScreen} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="AddDog" component={AddDog} />

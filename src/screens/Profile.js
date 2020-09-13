@@ -21,7 +21,7 @@ const Profile = ({navigation}) => {
     (state) => state.allUserInfo.currentUserID,
   );
   const dispatch = useDispatch();
-  const ngrok = '535704740bf6.ngrok.io';
+  const ngrok = 'bb7fcf668b43.ngrok.io';
   const checkIfLoggedIn = useSelector(
     (state) => state.allUserInfo.checkIfLoggedIn,
   );

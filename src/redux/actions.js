@@ -12,7 +12,7 @@ import {
   SET_DOGS,
 } from './actionTypes';
 
-const ngrok = '535704740bf6.ngrok.io';
+const ngrok = 'bb7fcf668b43.ngrok.io';
 
 //USER STUFF
 export const login = async (user, dispatch) => {
@@ -72,6 +72,8 @@ export const checkHandle = (handle, dispatch) => {
 };
 
 export const signup = (user, dispatch) => {
+  // let conversion = user.photo.uri.split(':');
+  // console.log(conversion[conversion.length - 1]);c
   fetch(`http://${ngrok}/users`, {
     method: 'POST',
     headers: {
@@ -85,14 +87,15 @@ export const signup = (user, dispatch) => {
       state: user.state,
       country: user.country,
       password: user.password,
-      photo: user.photo.uri.split(':')[1],
+      photo: user.photo,
       file_name: user.file_name,
     }),
   })
+    .then((response) => response.json())
     .then((userObj) => {
       console.log(userObj);
       dispatch({type: SET_USER, payload: userObj});
-      dispatch({type: SET_LOGGED_IN_CHECK, payload: true});
+      // dispatch({type: SET_LOGGED_IN_CHECK, payload: true});
     })
     .catch((error) => {
       Alert.alert('Unable to create account');

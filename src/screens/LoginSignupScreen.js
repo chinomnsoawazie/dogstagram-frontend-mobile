@@ -17,7 +17,6 @@ const LoginSignupScreen = ({navigation}) => {
   );
   const isLoading = useSelector((state) => state.allAnimationInfo.isLoading);
 
-
   const handleSubmit = async () => {
     dispatch({type: SET_ANIMATION_START, payload: true});
     let user = {
@@ -56,7 +55,7 @@ const LoginSignupScreen = ({navigation}) => {
         <Button title="Log in" onPress={() => handleSubmit()} />
         <Button
           title="Signup"
-          // onPress={() => navigation.navigate('Signup')}
+          onPress={() => navigation.navigate('SignUpScreen')}
         />
       </View>
     </SafeAreaView>
