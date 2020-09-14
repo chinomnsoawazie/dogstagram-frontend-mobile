@@ -83,7 +83,8 @@ function SignUpScreen({navigation}) {
       city: city,
       state: state,
       country: country,
-      photo: photoData._parts[[0]][1].uri,
+      photo: imageFile.data,
+      // photo: photoData._parts[[0]][1].uri,
       file_name: photoData._parts[[0]][1].name,
       password: password,
     };
@@ -151,7 +152,7 @@ function SignUpScreen({navigation}) {
 
   const selectImage = () => {
     const options = {
-      noData: true,
+      noData: false,
     };
     ImagePicker.launchImageLibrary(options, (response) => {
       if (response.didCancel) {
