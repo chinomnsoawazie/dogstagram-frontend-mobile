@@ -118,12 +118,12 @@
   <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
   
     
- <h1 id="goals">Goals</h1>
+ <h1 id="goals">Goal</h1>
   <p>The goal is create a social media platform focused on dogs.</p>
   
  <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
  
- <h1 id="challenge">Challenge</h1>
+ <h1 id="challenge">Challenges</h1>
   <p>The challenges include the following;</p>
   
   <ul>
