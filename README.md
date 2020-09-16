@@ -149,6 +149,8 @@
       <p>AfroPanTrack frontend is biult with React(^16.12.0), Axios(^0.19.1), google maps react(^2.0.2"), react google maps(^9.4.5), redux(^4.0.5), and redux thunk(^2.3.0). Ensure you have installed these packages with the specified versions or newer ones before cloning this repo. You can find their official installation guides below;
  <ul>
   <li><a href="https://reactjs.org/docs/getting-started.html#create-a-new-react-app">React</a></li>
+  <li><a href="https://reactnative.dev/">React Navite</a></li>
+
   <li><a href="https://www.npmjs.com/package/axios">Axios</a></li>
   <li><a href="https://www.npmjs.com/package/google-maps-react">Google maps react</a></li>
   <li><a href="https://www.npmjs.com/package/react-google-maps">React google maps</a></li>
