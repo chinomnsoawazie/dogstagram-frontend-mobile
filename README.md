@@ -143,6 +143,38 @@
    <p>Coming soon</p>
       
    <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+   
+   <h1 id="installation">Installation</h1>
+   <h2 id="prerequisites">Prerequisites</h2>
+      <p>AfroPanTrack frontend is biult with React(^16.12.0), Axios(^0.19.1), google maps react(^2.0.2"), react google maps(^9.4.5), redux(^4.0.5), and redux thunk(^2.3.0). Ensure you have installed these packages with the specified versions or newer ones before cloning this repo. You can find their official installation guides below;
+ <ul>
+  <li><a href="https://reactjs.org/docs/getting-started.html#create-a-new-react-app">React</a></li>
+  <li><a href="https://www.npmjs.com/package/axios">Axios</a></li>
+  <li><a href="https://www.npmjs.com/package/google-maps-react">Google maps react</a></li>
+  <li><a href="https://www.npmjs.com/package/react-google-maps">React google maps</a></li>
+  <li><a href="https://www.npmjs.com/package/redux">React Redux</a></li>
+  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
+ </ul>
+</p>
+  
+  <h2 id="frontend-installation">Frontend installation</h2>
+<p>To install the front end of AfroPanTrack, do the following;
+ <ul>
+  <li>Clone the <a href="https://github.com/chinomnsoawazie/AfroPanTrack-frontend">Frontend</a></li>
+  <li>Ensure all relevant packages from the prerequisites section above are installed by running <code>npm install</code> from your terminal</li>
+  <li>Head over to <a href="https://github.com/chinomnsoawazie/AfroPanTrack-backend">Backend</a> and follow the instructions to install the backend API</li>
+ </ul>
+</p>
+
+ <h2 id="first-start">First start</h2>
+<p>After installation you need to fire up the backend API and the frontend in that order. For the backend, navigate into the folder you cloned the backend repo into(probably need to run an <code>ls</code> command to be sure youre in the root app folder), and run <code>rails s</code>. This would start the backend on the default <code>port 3000</code>. Then in a new shell tab or new terminal window, navivate to the folder containing the cloned and properly installed frontend repo and run <code>npm start</code>. It should come up with a dialog that informs you <code>port 3000</code> is taken and props you to chose to run the frontend on a different port. Chose yes and everything should be alright. Frontend will run on a port with a number above 3000, usually 3001.<br/>
+
+To access the backend, go to <code>http://localhost:3000</code><br/>
+To acess the frontend, go to <code>http://localhost:3001</code></p>
+ 
+<a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+
+
   
   
   
