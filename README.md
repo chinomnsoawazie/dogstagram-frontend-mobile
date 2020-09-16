@@ -117,6 +117,33 @@
     
   <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
   
+    
+ <h1 id="goals">Goals</h1>
+  <p>The goal is create a social media platform focused on dogs.</p>
+  
+ <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+ 
+ <h1 id="challenge">Challenge</h1>
+  <p>The challenges include the following;</p>
+  
+  <ul>
+     <li>Select pictures (and videos in the commercial version) from a device (iOS, Android, and Web browsers)</li>
+     <li>Pass picture for profile pic lifted from the device to the Rails backend</li>
+     <li>From the backend, store the picture file to AWS S3 via ActiveStorage </li>
+     <li>Not have a copy in the backend, but instead AWS S3 sends a reference to the backend upon successful upload. This is what the Rails backend's ActiveStorage uses to generate a unique link each time image url is attached to an object, eg when a user logs in from the frontend, a successful login attempt will have a  profile photo URL unique to that instace of database access and sends it to the frontend. If the user logs out and logs in again, the photo URL will be different. The frontend in rendering this image URL points to the Rail backend API, which in turn processes the URL and responds with a redirect to AWS S3, and that renders to the frontend</li>
+     <li>Pictures for dogs are saved to a Firebase Realtime Database, not to the backend</li>
+     <li>The mix of storage technologies is to cut costs</li>
+     <li>Use Firebase Auth to enable OAuth 2.0 login authorizations from Facebook and Twitter</li>
+   </ul>
+  
+ <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+ 
+ 
+  <h1 id="demo">Demo</h1>
+   <p>Coming soon</p>
+      
+   <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+  
   
   
   <h1 id="credits">Credits</h1>
@@ -124,10 +151,13 @@
  <ul>
   <li><a href="https://jwt.io/introduction/">JWT Auth</a></li>
   <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
-    <li><a href="https://rubyonrails.org/">Rails</a></li>
+  <li><a href="https://rubyonrails.org/">Rails</a></li>
   <li><a href="https://rubygems.org/gems/dotenv-rails/versions/2.7.5">dotenv-rails</a></li>
   <li><a href="https://rubygems.org/gems/bcrypt/versions/3.1.7">Bcrypt</a></li>
   <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  <li><a href="https://aws.amazon.com/s3/">AWS S3</a></li>
+  <li><a href="https://firebase.google.com/docs/database">Firebase Realtime Database</a></li>
+  <li><a href="https://reactnative.dev/">React Native</a></li>
  </ul>
 </p>
 
