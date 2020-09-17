@@ -178,19 +178,32 @@
 </p>
 
   <h2 id="frontend-installation">Frontend installation</h2>
-<p>To install the front end of AfroPanTrack, do the following;
+<p>To install the front end of DogStagram, do the following;
  <ul>
-  <li>Clone the <a href="https://github.com/chinomnsoawazie/AfroPanTrack-frontend">Frontend</a></li>
-  <li>Ensure all relevant packages from the prerequisites section above are installed by running <code>npm install</code> from your terminal</li>
-  <li>Head over to <a href="https://github.com/chinomnsoawazie/AfroPanTrack-backend">Backend</a> and follow the instructions to install the backend API</li>
+  <li>Clone the <a href="https://github.com/chinomnsoawazie/dogstagram-frontweb-mobile">Frontend</a></li>
+  <li>Ensure all relevant packages from the prerequisites section above are installed by running <code>yarn add "package-name"</code> from your terminal</li>
+  <li>Follow the instructions from <a href="https://rnfirebase.io/">React Native Firebase</a> documentation to properly set up your Firebase parameters </li>
+  <li>Then run  <code>cd ios && pod install && cd ..</code> from your terminal. This installs the necesary pods</li>
+  <li>Then run  <code>cd android && ./gradlew clean</code> from your terminal. This will set up required parameters for the android version of the app and you'll likely have to fix ensuing issues</li>
+    <li>Then run  <code>./gradlew signingReport && ./gradlew app:assembleRelease</code> from your terminal. This is to ensure you have a clean slate of working build ofthe android version of the app and you'll likely have to fix ensuing issues</li>
+  <ul>
+   <h6>To run the andriod version</h6>
+      <li>To run the android version, run  <code>adb devices</code> from your terminal to see available devices/emulators. If none is seen, you might need to properly set up android studio parameters. You'll likely have to fix ensuing issues</li>
+        <li>Then run  <code>  npx react-native run-android</code> from your terminal to launch the emulator or create a biuld that can be installed on an android phone</li>
+  </ul>
+  
+  <ul>
+    <h6>To run the iOS version</h6>
+    <li>Open the project's workspace in Xcode  and click run. You'll likely have to fix ensuing issues</li>
+    <li>If the biuld passes and there is a connected phone, the app will be installed on the phone. You might need to approve permision for the app to run on your phone</li>
+  </ul>
+  
+  <li>Head over to <a href="https://github.com/chinomnsoawazie/dogstagram_backend">Backend</a> and follow the instructions to build/install the backend API</li>
  </ul>
 </p>
 
  <h2 id="first-start">First start</h2>
-<p>After installation you need to fire up the backend API and the frontend in that order. For the backend, navigate into the folder you cloned the backend repo into(probably need to run an <code>ls</code> command to be sure youre in the root app folder), and run <code>rails s</code>. This would start the backend on the default <code>port 3000</code>. Then in a new shell tab or new terminal window, navivate to the folder containing the cloned and properly installed frontend repo and run <code>npm start</code>. It should come up with a dialog that informs you <code>port 3000</code> is taken and props you to chose to run the frontend on a different port. Chose yes and everything should be alright. Frontend will run on a port with a number above 3000, usually 3001.<br/>
-
-To access the backend, go to <code>http://localhost:3000</code><br/>
-To acess the frontend, go to <code>http://localhost:3001</code></p>
+<p>After installation you need to fire up the backend API and the frontend in that order. For the backend, navigate into the folder you cloned the backend repo into(probably need to run an <code>ls</code> command to be sure youre in the root app folder), and run <code>rails s</code>. This would start the backend on the default <code>port 3000</code>. I used ngrok package to open up my <code>http://localhost:3000</code> to the internet so that my apps can access the backend through the internet. I wrote this <a href="https://medium.com/coffee-software/making-http-localhost-3000-accessible-from-mobile-devices-during-react-native-rails-api-app-87183075e5b4">article</a> detailing how to achieve that.  Then in a new shell tab or new terminal window, navigate to the folder containing the cloned and properly installed frontend repo and run <code>yarn start</code>. You will now be given options on what platforms to run the app.
  
 <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
 
