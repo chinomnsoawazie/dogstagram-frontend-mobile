@@ -151,16 +151,49 @@
   <li><a href="https://reactjs.org/docs/getting-started.html#create-a-new-react-app">React</a></li>
   <li><a href="https://reactnative.dev/">React Native</a></li>
   <li><a href="https://www.npmjs.com/package/@react-native-firebase/app">React Native Firebase App</a></li>
-  
-  
-
   <li><a href="https://www.npmjs.com/package/axios">Axios</a></li>
-  <li><a href="https://www.npmjs.com/package/google-maps-react">Google maps react</a></li>
-  <li><a href="https://www.npmjs.com/package/react-google-maps">React google maps</a></li>
-  <li><a href="https://www.npmjs.com/package/redux">React Redux</a></li>
+  <li><a href="https://www.npmjs.com/package/@eva-design/eva">Eva Design</a></li>
+  <li><a href="https://www.npmjs.com/package/@react-native-community/masked-view">React Native Community Masked View</a></li>
+  <li><a href="https://www.npmjs.com/package/redux">Redux</a></li>
   <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
+  
+  <li><a href="https://www.npmjs.com/package/@react-native-community/picker">React Native Community Picker</a></li>
+  <li><a href="https://www.npmjs.com/package/@react-native-firebase/database">React Native Firebase Database</a></li>
+  <li><a href="https://www.npmjs.com/package/@react-navigation/native">React Native Navigation</a></li>
+  <li><a href="https://www.npmjs.com/package/react-navigation-stack">React Navigation Stack</a></li>
+  <li><a href="https://www.npmjs.com/package/@ui-kitten/eva-icons">RUI Kitten Eva Icons</a></li>
+  <li><a href="https://www.npmjs.com/package/react-native-gesture-handler">React Native Gesture Handler</a></li>
+  <li><a href="https://www.npmjs.com/package/react-native-get-random-values">React Native Get Random Values</a></li>
+  <li><a href="https://www.npmjs.com/package/react-native-image-picker">React Native Image Picker</a></li>
+  <li><a href="https://www.npmjs.com/package/react-native-picker-select/v/6.3.4">React Native Picker Select</a></li>
+  <li><a href="https://www.npmjs.com/package/react-native-reanimated">React Native Reanimated</a></li>
+  <li><a href="https://www.npmjs.com/package/react-native-safe-area-context?activeTab=versions">React Native Safe Area Context</a></li>
+  <li><a href="https://www.npmjs.com/package/react-native-screens">React Native Screens</a></li>
+  
+  
+  <li><a href="https://www.npmjs.com/package/react-native-svg">React Natvie SVG</a></li>
+  <li><a href="https://www.npmjs.com/package/react-native-ui-kitten">React Native UI Kittenk</a></li>
+  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
+  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
+  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
+  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
+  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
+  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
+
+
  </ul>
 </p>
+
+
+
+<!--
+    "react-navigation": "^4.4.0",
+    "react-navigation-stack": "^2.8.2",
+    "react-navigation-tabs": "^2.9.0",
+    "react-redux": "^7.2.1",
+    "uuid": "^8.3.0"-->
+
+
   
   <h2 id="frontend-installation">Frontend installation</h2>
 <p>To install the front end of AfroPanTrack, do the following;
