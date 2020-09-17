@@ -169,32 +169,14 @@
   <li><a href="https://www.npmjs.com/package/react-native-reanimated">React Native Reanimated</a></li>
   <li><a href="https://www.npmjs.com/package/react-native-safe-area-context?activeTab=versions">React Native Safe Area Context</a></li>
   <li><a href="https://www.npmjs.com/package/react-native-screens">React Native Screens</a></li>
-  
-  
   <li><a href="https://www.npmjs.com/package/react-native-svg">React Natvie SVG</a></li>
   <li><a href="https://www.npmjs.com/package/react-native-ui-kitten">React Native UI Kittenk</a></li>
-  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
-  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
-  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
-  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
-  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
-  <li><a href="https://www.npmjs.com/package/redux-thunk">Redux Thunk</a></li>
-
-
+  <li><a href="https://www.npmjs.com/package/react-navigation">React Navigation</a></li>
+  <li><a href="https://www.npmjs.com/package/react-navigation-tabs">React Navigation Tabs</a></li>
+  <li><a href="https://www.npmjs.com/package/uuid">UUID</a></li>
  </ul>
 </p>
 
-
-
-<!--
-    "react-navigation": "^4.4.0",
-    "react-navigation-stack": "^2.8.2",
-    "react-navigation-tabs": "^2.9.0",
-    "react-redux": "^7.2.1",
-    "uuid": "^8.3.0"-->
-
-
-  
   <h2 id="frontend-installation">Frontend installation</h2>
 <p>To install the front end of AfroPanTrack, do the following;
  <ul>
