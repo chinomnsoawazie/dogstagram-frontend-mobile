@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable jsx-quotes */
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   SafeAreaView,

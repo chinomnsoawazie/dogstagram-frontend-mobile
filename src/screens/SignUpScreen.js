@@ -39,42 +39,6 @@ function SignUpScreen({navigation}) {
     checkHandle(handle, dispatch);
   };
 
-  // const handleSubmit = async () => {
-  //   let file_name = name + 'ProfilePic.jpg';
-  //   let user = {
-  //     name: name,
-  //     handle: handle,
-  //     city: city,
-  //     state: state,
-  //     country: country,
-  //     password: password,
-  //     photo: imageFile,
-  //     file_name: file_name,
-  //   };
-
-  //   if (!handleCheck) {
-  //     return Alert.alert(
-  //       'Username Check',
-  //       'Please check if username is available',
-  //       [
-  //         {
-  //           text: 'OK',
-  //         },
-  //       ],
-  //     );
-  //   } else if (password !== confirm) {
-  //     return Alert.alert('Username Check', "Passwords don't match", [
-  //       {
-  //         text: 'OK',
-  //       },
-  //     ]);
-  //   }
-
-  //   console.log(imageFile.uri);
-
-  //   await signup(user, dispatch);
-  // };
-
   const handleSubmit = async () => {
     const photoData = createFormData(imageFile);
     let user = {
@@ -84,12 +48,9 @@ function SignUpScreen({navigation}) {
       state: state,
       country: country,
       photo: imageFile.data,
-      // photo: photoData._parts[[0]][1].uri,
       file_name: photoData._parts[[0]][1].name,
       password: password,
     };
-
-    // debugger;
 
     if (!handleCheck) {
       return Alert.alert(
@@ -109,29 +70,6 @@ function SignUpScreen({navigation}) {
       ]);
     }
 
-    // fetch(`http://${ngrok}/users`, {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(createFormData(imageFile, user)),
-    // })
-    //   .then((response) => response.json())
-    //   .then((response) => {
-    //     console.log('upload succes', response);
-    //     alert('Upload success!');
-    //     // this.setState({
-    //     //   photo: null,
-    //     // });
-    //   })
-    //   .catch((error) => {
-    //     console.log('upload error', error);
-    //     alert('Upload failed!');
-    //   });
-
-    // console.log(imageFile.uri);
-
     signup(user, dispatch);
   };
 
@@ -139,6 +77,8 @@ function SignUpScreen({navigation}) {
   //Below will be switched out with "checkIfCreated". Alternatively, this
   //process can be done in the actions of signup by passing navigation in line
   //70 above
+
+  //Change of Plan: 
   if (checkIfLoggedIn) {
     console.log(checkIfLoggedIn);
     navigation.navigate('LoginSignupScreen');
