@@ -9,7 +9,7 @@ import {
   SET_ANIMATION_STOP,
   RESET_CURRENT_PROFILE,
   LOGOUT,
-  SET_DOGS,
+  SET_DOGS, SET_USER_SEARCH_RESULT
 } from './actionTypes';
 
 const ngrok = 'bb7fcf668b43.ngrok.io';
@@ -72,8 +72,6 @@ export const checkHandle = (handle, dispatch) => {
 };
 
 export const signup = (user, dispatch) => {
-  // let conversion = user.photo.uri.split(':');
-  // console.log(conversion[conversion.length - 1]);c
   fetch(`http://${ngrok}/users`, {
     method: 'POST',
     headers: {
@@ -120,4 +118,16 @@ export const logout = (dispatch) => {
 
 export const setDogsToReduxStore = (dogs, dispatch) => {
   dispatch({type: SET_DOGS, payload: dogs});
+};
+
+export const searchForUsers = async (dispatch, searchTerm) => {
+  await axios
+    .get(`http://${ngrok}/users/findUsers/${searchTerm}`)
+    .then((searchResponse) => {
+      // console.log(searchResponse.data.searchResponse);
+      dispatch({
+        type: SET_USER_SEARCH_RESULT,
+        payload: searchResponse.data.searchResponse,
+      });
+    });
 };

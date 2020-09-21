@@ -6,7 +6,7 @@ import {
   SET_LOGGED_IN_CHECK,
   SET_CURRENT_PROFILE,
   RESET_CURRENT_PROFILE,
-  LOGOUT,
+  LOGOUT, SET_USER_SEARCH_RESULT,
 } from '../actionTypes';
 
 const initialState = {
@@ -17,7 +17,7 @@ const initialState = {
   checkIfLoggedIn: false,
   currentProfile: null,
   user_id: '',
-  currentUserID: 0,
+  userSearchResponse: '',
 };
 
 const userReducer = (state = initialState, action) => {
@@ -69,7 +69,12 @@ const userReducer = (state = initialState, action) => {
         checkIfLoggedIn: false,
         currentProfile: '',
         user_id: '',
-        currentUserID: 0,
+        userSearchResponse: '',
+      };
+    case SET_USER_SEARCH_RESULT:
+      return {
+        ...state,
+        userSearchResponse: action.payload,
       };
 
     default:

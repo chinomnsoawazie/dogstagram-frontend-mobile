@@ -1,33 +1,20 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable jsx-quotes */
 import React from 'react';
-import {
-  StyleSheet,
-  SafeAreaView,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, SafeAreaView, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {Layout, list, Avatar, Button} from 'react-native-ui-kitten';
-import database from '@react-native-firebase/database';
+import {Avatar, Button} from 'react-native-ui-kitten';
 import {logout} from '../redux/actions';
 
 import ProfileDogs from '../components/ProfileDogs'
 const Profile = ({navigation}) => {
   const profile = useSelector((state) => state.allUserInfo.currentProfile);
-  const currentUser_ID = useSelector(
-    (state) => state.allUserInfo.currentUserID,
-  );
   const dispatch = useDispatch();
   const ngrok = 'bb7fcf668b43.ngrok.io';
   const checkIfLoggedIn = useSelector(
     (state) => state.allUserInfo.checkIfLoggedIn,
   );
   const dogs = useSelector((state) => state.allDogInfo.allDogs);
-  // console.log(dogs);
-
 
   const handleLogout = () => {
     logout(dispatch);

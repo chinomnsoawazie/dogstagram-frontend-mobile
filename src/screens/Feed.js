@@ -17,7 +17,7 @@ const Feed = ({navigation}) => {
     async function fetchData() {
       await database()
         .ref('dogs')
-        .limitToFirst(10)
+        // .limitToFirst(10)
         .once('value')
         .then((snapshot) => {
           let allDogs = [];

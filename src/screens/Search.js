@@ -1,24 +1,40 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {View, StyleSheet, TextInput} from 'react-native';
+import {Button} from 'react-native-ui-kitten';
 
 import {Icon} from 'react-native-ui-kitten';
 import {createAppContainer} from 'react-navigation';
+import {useDispatch} from 'react-redux';
 import SearchTabNavigator from '../navigation/SearchTabs';
+import {searchForUsers} from '../redux/actions';
 
 const SearchIndex = createAppContainer(SearchTabNavigator);
 
 const Search = ({navigation}) => {
+  const dispatch = useDispatch()
   const [value, setValue] = useState('');
+
+  const handleSearch = () => {
+    searchForUsers(dispatch, value);
+
+    console.log(value);
+    //search backend for users and dispatch response to userReducer
+    //search firebase for dogs and dispatch response to dogReducer
+    //pull dogsResponse from dogReducer into DogsScreen
+    //pull userResponse from userReducer into UserScreen
+  };
 
   return (
     <>
       <TextInput
         style={styles.searchBox}
-        placeholder="Search"
+        placeholder="Type search terms here"
         value={value}
-        onChangeText={() => setValue()}
+        onChangeText={(searchTerm) => setValue(searchTerm)}
       />
+      <Button style={styles.button} onPress={() => handleSearch()}>Search</Button>
+
       <View style={styles.searchTabs}>
         <Icon name="plus-square-outline" />
         <SearchIndex />
@@ -40,6 +56,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#DCDCDC',
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  button: {
+    alignItems: 'center',
+    padding: 10,
+    fontWeight: "bold",
   },
 });
 
