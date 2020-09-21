@@ -5,9 +5,12 @@ import {Icon} from 'react-native-ui-kitten';
 
 import Activity from '../screens/Activity';
 import AddDog from '../screens/AddDog';
-import Search from '../screens/Search';
 
-import {FeedNavigator, ProfileNavigator} from './StackNavigator';
+import {
+  FeedNavigator,
+  ProfileNavigator,
+  SearchNavigator,
+} from './StackNavigator';
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -25,7 +28,7 @@ const TabNavigator = createBottomTabNavigator(
       },
     },
     Search: {
-      screen: Search,
+      screen: SearchNavigator,
       navigationOptions: {
         tabBarIcon: ({focused}) => (
           <Icon
@@ -76,7 +79,6 @@ const TabNavigator = createBottomTabNavigator(
         ),
       },
     },
-
   },
 
   {
