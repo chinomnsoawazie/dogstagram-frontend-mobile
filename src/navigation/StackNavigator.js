@@ -40,7 +40,7 @@ export const SearchNavigator = createAppContainer(
     Search: {
       screen: Search,
       navigationOptions: {
-        headerTitle: 'Dogs & Users Search',
+        headerTitle: 'Dogs & Owners Search',
         headerTitleAlign: 'center',
       },
     },

@@ -14,40 +14,64 @@ const SearchTabNavigator = createMaterialTopTabNavigator(
     'All Results': {
       screen: AllResultsSCreen,
       navigationOptions: {
-        tabBarIcon: ({focused}) => (
-          <Icon
-            name="home-outline"
-            width={30}
-            height={30}
-            fill={focused ? '#111' : '#939393'}
-          />
-        ),
+        tabBarIcon: ({focused}) =>
+          focused ? (
+            <Icon
+              name="book-open-outline"
+              width={30}
+              height={30}
+              fill={focused ? '#111' : '#939393'}
+            />
+          ) : (
+            <Icon
+              name="book-outline"
+              width={30}
+              height={30}
+              fill={focused ? '#111' : '#939393'}
+            />
+          ),
       },
     },
     Dogs: {
       screen: DogResultsScreen,
       navigationOptions: {
-        tabBarIcon: ({focused}) => (
-          <Icon
-            name="home-outline"
-            width={30}
-            height={30}
-            fill={focused ? '#111' : '#939393'}
-          />
-        ),
+        tabBarIcon: ({focused}) =>
+          focused ? (
+            <Icon
+              name="github"
+              width={30}
+              height={30}
+              fill={focused ? '#111' : '#939393'}
+            />
+          ) : (
+            <Icon
+              name="github-outline"
+              width={30}
+              height={30}
+              fill={focused ? '#111' : '#939393'}
+            />
+          ),
       },
     },
     Owners: {
       screen: DogOwnersResultsScreen,
       navigationOptions: {
-        tabBarIcon: ({focused}) => (
-          <Icon
-            name="home-outline"
-            width={30}
-            height={30}
-            fill={focused ? '#111' : '#939393'}
-          />
-        ),
+        tabBarIcon: ({focused}) =>
+          focused ? (
+            <Icon
+              name="person-done-outline"
+              width={30}
+              height={30}
+              fill={focused ? '#111' : '#939393'}
+            />
+          ) : (
+            <Icon
+              name="person-outline"
+              width={30}
+              height={30}
+              fill={focused ? '#111' : '#939393'}
+            />
+          ),
       },
     },
   },
@@ -57,10 +81,10 @@ const SearchTabNavigator = createMaterialTopTabNavigator(
       showIcon: true,
       showLabel: true,
       style: {
-        // marginTop: '10%',
         height: 60,
         width: '100%',
-        // backgroundColor: 'orange',
+        backgroundColor: 'orange',
+        borderRadius: 10,
       },
     },
   },

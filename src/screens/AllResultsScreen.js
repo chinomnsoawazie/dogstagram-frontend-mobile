@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {Icon} from 'react-native-ui-kitten';
 
 const AllResultsScreen = () => {
@@ -10,9 +10,13 @@ const AllResultsScreen = () => {
   );
 };
 
-AllResultsScreen.navigationOptions = {
-  tabBarIcon: ({tintColor, focused}) => (
-    <Icon name="book-open" width={32} height={32} />
-  ),
-};
+const styles = StyleSheet.create({
+  textColor: {
+    color: 'black',
+  },
+  container: {
+    marginTop: 100,
+  }
+});
+
 export default AllResultsScreen;
