@@ -9,7 +9,7 @@ import {
   SET_ANIMATION_STOP,
   RESET_CURRENT_PROFILE,
   LOGOUT,
-  SET_DOGS, SET_USER_SEARCH_RESULT
+  SET_DOGS, SET_USER_SEARCH_RESULT, SET_CREATED
 } from './actionTypes';
 
 const ngrok = 'bb7fcf668b43.ngrok.io';
@@ -93,7 +93,7 @@ export const signup = (user, dispatch) => {
     .then((userObj) => {
       console.log(userObj);
       dispatch({type: SET_USER, payload: userObj});
-      // dispatch({type: SET_LOGGED_IN_CHECK, payload: true});
+      dispatch({type: SET_CREATED, payload: true});
     })
     .catch((error) => {
       Alert.alert('Unable to create account');
@@ -124,7 +124,7 @@ export const searchForUsers = async (dispatch, searchTerm) => {
   await axios
     .get(`http://${ngrok}/users/findUsers/${searchTerm}`)
     .then((searchResponse) => {
-      // console.log(searchResponse.data.searchResponse);
+      // console.log('user search response from actions', searchResponse.data.searchResponse)
       dispatch({
         type: SET_USER_SEARCH_RESULT,
         payload: searchResponse.data.searchResponse,

@@ -19,10 +19,8 @@ const Search = ({navigation}) => {
     searchForUsers(dispatch, value);
 
     console.log(value);
-    //search backend for users and dispatch response to userReducer
     //search firebase for dogs and dispatch response to dogReducer
     //pull dogsResponse from dogReducer into DogsScreen
-    //pull userResponse from userReducer into UserScreen
   };
 
   return (

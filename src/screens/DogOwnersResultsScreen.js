@@ -1,14 +1,97 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Dimensions,
+  Image,
+  TouchableOpacity, Alert
+} from 'react-native';
+import {useSelector} from 'react-redux';
+import {Avatar, Button} from 'react-native-ui-kitten';
 
 const DogOwnersResultsScreen = () => {
+  const usersFetched = useSelector(
+    (state) => state.allUserInfo.userSearchResponse,
+  );
+  const extractItemKey = (index) => `${index}`;
+  // const itemSize = (Dimensions.get('window').width - 12) / 2;
+  const ngrok = 'bb7fcf668b43.ngrok.io';
+
+  console.log('from DogOwnersResultsScreen', usersFetched);
+
+  const renderItem = ({item, index}) => (
+    <>
+      <TouchableOpacity
+        onPress={() =>
+         Alert.alert(
+            'This is the action that will lead to personal feed of users dog images',
+          )
+        }>
+        <Avatar
+          source={{
+            uri: `https://${ngrok}/${item.photo_url
+              .split('/')
+              .slice(3)
+              .join('/')}`,
+          }}
+          size="giant"
+          style={{width: 100, height: 100}}
+        />
+
+        <View style={styles.dogInfo}>
+          <View style={styles.section}>
+            <Text style={styles.space2}>Handle: </Text>
+            <Text style={styles.space}>{item.handle}</Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={styles.space2}>City: </Text>
+            <Text style={styles.space}>{item.city}</Text>
+          </View>
+        </View>
+      </TouchableOpacity>
+    </>
+  );
+
   return (
-    <View>
-      <Text>Dog owners result screen</Text>
+    <View style={styles.images}>
+      <FlatList
+        data={usersFetched}
+        numColumns={2}
+        keyExtractor={extractItemKey}
+        renderItem={renderItem}
+      />
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
-
+const styles = StyleSheet.create({
+  images: {
+    flexDirection: 'row',
+    paddingHorizontal: 0.5,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: 'white',
+  },
+  section: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginHorizontal: '5%',
+  },
+  space: {
+    color: '#151a30',
+    fontWeight: 'bold',
+  },
+  space2: {
+    color: '#aab9b7',
+    fontWeight: 'bold',
+  },
+  dogInfo: {
+    flex: 1,
+    paddingVertical: 10,
+  },
+});
 export default DogOwnersResultsScreen;

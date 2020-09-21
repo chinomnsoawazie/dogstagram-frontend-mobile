@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   View,
   FlatList,
@@ -17,7 +17,7 @@ const ProfileDogs = (props) => {
   console.log(items);
 
   const renderItem = ({item, index}) => (
-    <React.Fragment>
+    <>
       <TouchableOpacity onPress={() => alert('This is the action that will lead to personal feed of users dog images')}>
         <Image
           style={{
@@ -45,7 +45,7 @@ const ProfileDogs = (props) => {
         </View>
         {/**add dog detials like comments, likes and comment replies here */}
       </TouchableOpacity>
-    </React.Fragment>
+    </>
   );
 
   return (

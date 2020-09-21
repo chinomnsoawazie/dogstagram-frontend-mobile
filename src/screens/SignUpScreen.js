@@ -31,9 +31,7 @@ function SignUpScreen({navigation}) {
   const isHandleChecked = useSelector(
     (state) => state.allUserInfo.handleChecked,
   );
-  const checkIfLoggedIn = useSelector(
-    (state) => state.allUserInfo.checkIfLoggedIn,
-  );
+  const checkIfCreated = useSelector((state) => state.allUserInfo.created);
 
   const handleChange = () => {
     checkHandle(handle, dispatch);
@@ -73,14 +71,7 @@ function SignUpScreen({navigation}) {
     signup(user, dispatch);
   };
 
-  //ToDO
-  //Below will be switched out with "checkIfCreated". Alternatively, this
-  //process can be done in the actions of signup by passing navigation in line
-  //70 above
-
-  //Change of Plan: 
-  if (checkIfLoggedIn) {
-    console.log(checkIfLoggedIn);
+  if (checkIfCreated) {
     navigation.navigate('LoginSignupScreen');
   }
 
