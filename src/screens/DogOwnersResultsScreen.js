@@ -4,22 +4,18 @@ import {
   Text,
   View,
   FlatList,
-  Dimensions,
-  Image,
-  TouchableOpacity, Alert
+  TouchableOpacity,
+  Alert,
 } from 'react-native';
 import {useSelector} from 'react-redux';
-import {Avatar, Button} from 'react-native-ui-kitten';
+import {Avatar} from 'react-native-ui-kitten';
 
 const DogOwnersResultsScreen = () => {
   const usersFetched = useSelector(
     (state) => state.allUserInfo.userSearchResponse,
   );
   const extractItemKey = (index) => `${index}`;
-  // const itemSize = (Dimensions.get('window').width - 12) / 2;
   const ngrok = 'bb7fcf668b43.ngrok.io';
-
-  console.log('from DogOwnersResultsScreen', usersFetched);
 
   const renderItem = ({item, index}) => (
     <>
@@ -37,7 +33,7 @@ const DogOwnersResultsScreen = () => {
               .join('/')}`,
           }}
           size="giant"
-          style={{width: 100, height: 100}}
+          style={{width: '100%', height: 100, borderRadius: 5}}
         />
 
         <View style={styles.dogInfo}>
@@ -94,4 +90,5 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
 });
+
 export default DogOwnersResultsScreen;

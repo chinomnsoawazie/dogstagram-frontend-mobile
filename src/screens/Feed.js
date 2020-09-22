@@ -17,7 +17,7 @@ const Feed = ({navigation}) => {
     async function fetchData() {
       await database()
         .ref('dogs')
-        // .limitToFirst(10)
+        .limitToFirst(10)
         .once('value')
         .then((snapshot) => {
           let allDogs = [];
@@ -26,6 +26,7 @@ const Feed = ({navigation}) => {
             Object.keys(returnedDogs).forEach(function (thisDog) {
               allDogs.push(returnedDogs[thisDog]);
             });
+            console.log(allDogs);
             setData(allDogs);
             setDogsToReduxStore(allDogs, dispatch);
             setIsRefreshing(false);

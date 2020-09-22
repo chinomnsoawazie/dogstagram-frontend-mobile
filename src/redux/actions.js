@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {Alert} from 'react-native';
+import database from '@react-native-firebase/database';
 import {
   SET_USER,
   SET_HANDLE_CHECK,
@@ -9,7 +10,9 @@ import {
   SET_ANIMATION_STOP,
   RESET_CURRENT_PROFILE,
   LOGOUT,
-  SET_DOGS, SET_USER_SEARCH_RESULT, SET_CREATED
+  SET_DOGS,
+  SET_USER_SEARCH_RESULT,
+  SET_CREATED, SET_DOGS_SEARCH_RESULT
 } from './actionTypes';
 
 const ngrok = 'bb7fcf668b43.ngrok.io';
@@ -101,9 +104,10 @@ export const signup = (user, dispatch) => {
     });
 };
 
-export const fetchUser = async (userHandle, dispatch) => {
-  await axios.get(`http://${ngrok}/users/${userHandle}`).then((fetchedUser) => {
-    dispatch({type: SET_CURRENT_PROFILE, payload: fetchedUser.data});
+export const fetchUser = async (dogUserID, dispatch) => {
+  await axios.get(`http://${ngrok}/users/${dogUserID}`).then((fetchedUser) => {
+    console.log(fetchedUser);
+    dispatch({type: SET_CURRENT_PROFILE, payload: fetchedUser.data.user});
     dispatch({type: SET_ANIMATION_STOP, payload: false});
   });
 };
@@ -120,14 +124,32 @@ export const setDogsToReduxStore = (dogs, dispatch) => {
   dispatch({type: SET_DOGS, payload: dogs});
 };
 
-export const searchForUsers = async (dispatch, searchTerm) => {
+export const searchForUsersFromRailsBackend = async (dispatch, searchTerm) => {
   await axios
     .get(`http://${ngrok}/users/findUsers/${searchTerm}`)
     .then((searchResponse) => {
-      // console.log('user search response from actions', searchResponse.data.searchResponse)
       dispatch({
         type: SET_USER_SEARCH_RESULT,
         payload: searchResponse.data.searchResponse,
       });
+    });
+};
+
+export const searchForDogsFromFirebase = (dispatch, searchTerm) => {
+  //clear store for a new search
+  dispatch({type: SET_DOGS_SEARCH_RESULT, payload: ''});
+  let currentDogs = [];
+  database()
+    .ref('dogs')
+    .orderByKey()
+    .startAt(`${searchTerm}`)
+    .endAt(`${searchTerm}\uf8ff`)
+    .on('child_added', function (snapshot) {
+      let returnedDog = [snapshot.val()];
+      currentDogs.push(returnedDog);
+      //this is to flatten the resulting array. Will need to use whatever this is set to in dogReducer
+      //as a dependency for the useState in DogsResultsScreen
+      let finalResult = [].concat.apply([], currentDogs);
+      dispatch({type: SET_DOGS_SEARCH_RESULT, payload: finalResult});
     });
 };

@@ -117,7 +117,7 @@ const AddDog = ({navigation}) => {
     };
 
     database()
-      .ref('dogs/' + id)
+      .ref('dogs/' + dogForUpload.name)
       .set(dogForUpload, function (error) {
         if (error) {
           Alert.alert('Error', error, [

@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  Text,
+  Text, Alert
 } from 'react-native';
 
 const ProfileDogs = (props) => {
@@ -18,7 +18,12 @@ const ProfileDogs = (props) => {
 
   const renderItem = ({item, index}) => (
     <>
-      <TouchableOpacity onPress={() => alert('This is the action that will lead to personal feed of users dog images')}>
+      <TouchableOpacity
+        onPress={() =>
+         Alert.alert(
+            'This is the action that will lead to personal feed of users dog images',
+          )
+        }>
         <Image
           style={{
             width: itemSize,

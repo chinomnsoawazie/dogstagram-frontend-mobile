@@ -1,7 +1,8 @@
-import {SET_DOGS} from '../actionTypes';
+import {SET_DOGS, SET_DOGS_SEARCH_RESULT} from '../actionTypes';
 
 const initialState = {
   allDogs: [],
+  searchResultDogs: '',
 };
 
 const dogReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const dogReducer = (state = initialState, action) => {
       return {
         ...state,
         allDogs: action.payload,
+      };
+    case SET_DOGS_SEARCH_RESULT:
+      return {
+        ...state,
+        searchResultDogs: action.payload,
       };
 
     default:

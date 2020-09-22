@@ -7,7 +7,10 @@ import {Icon} from 'react-native-ui-kitten';
 import {createAppContainer} from 'react-navigation';
 import {useDispatch} from 'react-redux';
 import SearchTabNavigator from '../navigation/SearchTabs';
-import {searchForUsers} from '../redux/actions';
+import {
+  searchForDogsFromFirebase,
+  searchForUsersFromRailsBackend,
+} from '../redux/actions';
 
 const SearchIndex = createAppContainer(SearchTabNavigator);
 
@@ -16,11 +19,8 @@ const Search = ({navigation}) => {
   const [value, setValue] = useState('');
 
   const handleSearch = () => {
-    searchForUsers(dispatch, value);
-
-    console.log(value);
-    //search firebase for dogs and dispatch response to dogReducer
-    //pull dogsResponse from dogReducer into DogsScreen
+    searchForUsersFromRailsBackend(dispatch, value);
+    searchForDogsFromFirebase(dispatch, value);
   };
 
   return (
