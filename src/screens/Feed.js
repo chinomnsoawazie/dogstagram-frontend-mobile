@@ -63,9 +63,6 @@ const Feed = ({navigation}) => {
   //eventListener to go to their profile. This should apply to comments
   //and replies too
 
-  //ToDo
-  //change avatar image to an 'owner of dog' depicting image that will reside in utils
-
   const renderItem = (item) => (
     <View style={styles.card}>
       <Image
