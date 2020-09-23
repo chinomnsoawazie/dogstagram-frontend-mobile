@@ -84,7 +84,6 @@ const AddDog = ({navigation}) => {
     }
 
     const id = uuidv4();
-
     const dogForUpload = {
       id: id,
       user_id: user_id,
@@ -93,27 +92,8 @@ const AddDog = ({navigation}) => {
       age: age,
       temparament: temparament,
       photo: image,
-      likes: {
-        likerFirstName: '',
-        likerLastName: '',
-        likerHandle: '',
-      },
-      comments: {
-        text: '',
-        commentLikes: {
-          commentLikerFirstName: '',
-          commentLikerLastName: '',
-          commentLikerHandle: '',
-        },
-        commentReplies: {
-          text: '',
-          replyLikes: {
-            replyLikerFirstName: '',
-            replyLikerLastName: '',
-            replyLikerHandle: '',
-          },
-        },
-      },
+      likes: '',
+      comments: '',
     };
 
     database()

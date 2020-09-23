@@ -32,7 +32,6 @@ export const login = async (user, dispatch) => {
   })
     .then((response) => response.json())
     .then((userObj) => {
-      console.log(userObj);
       if (!userObj.errors) {
         dispatch({type: SET_USER, payload: userObj});
         dispatch({type: SET_LOGGED_IN_CHECK, payload: true});
@@ -53,7 +52,6 @@ export const login = async (user, dispatch) => {
       }
     })
     .catch((error) => {
-      console.log('Error', error);
       Alert.alert(
         'Connection Error',
         "Sorry, it's not you, it's us. We're experiencing technical difficulty right now. Try again later",
@@ -94,19 +92,16 @@ export const signup = (user, dispatch) => {
   })
     .then((response) => response.json())
     .then((userObj) => {
-      console.log(userObj);
       dispatch({type: SET_USER, payload: userObj});
       dispatch({type: SET_CREATED, payload: true});
     })
     .catch((error) => {
       Alert.alert('Unable to create account');
-      console.log('Error', error);
     });
 };
 
 export const fetchUser = async (dogUserID, dispatch) => {
   await axios.get(`http://${ngrok}/users/${dogUserID}`).then((fetchedUser) => {
-    console.log(fetchedUser);
     dispatch({type: SET_CURRENT_PROFILE, payload: fetchedUser.data.user});
     dispatch({type: SET_ANIMATION_STOP, payload: false});
   });

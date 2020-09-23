@@ -6,32 +6,24 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  Text, Alert
+  Text,
+  Alert,
 } from 'react-native';
+const itemSize = (Dimensions.get('window').width - 12) / 3;
 
 const ProfileDogs = (props) => {
   const {items} = props;
-  const itemSize = (Dimensions.get('window').width - 12) / 3;
   const extractItemKey = (index) => `${index}`;
-
-  console.log(items);
 
   const renderItem = ({item, index}) => (
     <>
       <TouchableOpacity
         onPress={() =>
-         Alert.alert(
+          Alert.alert(
             'This is the action that will lead to personal feed of users dog images',
           )
         }>
-        <Image
-          style={{
-            width: itemSize,
-            height: itemSize,
-            margin: 1.5,
-          }}
-          source={item.photo}
-        />
+        <Image style={styles.image} source={item.photo} />
         <View style={styles.dogInfo}>
           <View style={styles.section}>
             <Text style={styles.space}>{Object.keys(item.likes).length}</Text>
@@ -43,7 +35,7 @@ const ProfileDogs = (props) => {
             </Text>
             <Text
               style={styles.space2}
-              onPress={() => alert('this is where comments live')}>
+              onPress={() => Alert.alert('this is where comments live')}>
               comments
             </Text>
           </View>
@@ -91,6 +83,11 @@ const styles = StyleSheet.create({
   dogInfo: {
     flex: 1,
     paddingVertical: 10,
+  },
+  image: {
+    width: itemSize,
+    height: itemSize,
+    margin: 1.5,
   },
 });
 

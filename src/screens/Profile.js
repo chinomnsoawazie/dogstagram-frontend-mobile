@@ -72,11 +72,7 @@ const Profile = ({navigation}) => {
 
           <View style={styles.separator} />
 
-          <Button
-            style={styles.button}
-            appearance="ghost"
-            status="danger"
-            onPress={() => console.log('message pressed')}>
+          <Button style={styles.button} appearance="ghost" status="danger">
             MESSAGE
           </Button>
         </View>

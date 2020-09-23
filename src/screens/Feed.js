@@ -1,5 +1,13 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState, useEffect} from 'react';
-import {View, TouchableOpacity, StyleSheet, Image, Text} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  Text,
+  Alert,
+} from 'react-native';
 import {Avatar, List} from 'react-native-ui-kitten';
 import {useDispatch} from 'react-redux';
 import database from '@react-native-firebase/database';
@@ -7,6 +15,7 @@ import database from '@react-native-firebase/database';
 import {SET_ANIMATION_START} from '../redux/actionTypes';
 import Loader from '../animations/Loader';
 import {fetchUser, setDogsToReduxStore} from '../redux/actions';
+import dogOwnerIcon from '../utils/dogOwnerIcon.png';
 
 const Feed = ({navigation}) => {
   const [data, setData] = useState(null);
@@ -26,7 +35,6 @@ const Feed = ({navigation}) => {
             Object.keys(returnedDogs).forEach(function (thisDog) {
               allDogs.push(returnedDogs[thisDog]);
             });
-            console.log(allDogs);
             setData(allDogs);
             setDogsToReduxStore(allDogs, dispatch);
             setIsRefreshing(false);
@@ -55,6 +63,9 @@ const Feed = ({navigation}) => {
   //eventListener to go to their profile. This should apply to comments
   //and replies too
 
+  //ToDo
+  //change avatar image to an 'owner of dog' depicting image that will reside in utils
+
   const renderItem = (item) => (
     <View style={styles.card}>
       <Image
@@ -64,13 +75,13 @@ const Feed = ({navigation}) => {
         style={styles.cardImage}
       />
       <View style={styles.cardHeader}>
-        <View style={{flexDirection: 'row', width: '95%'}}>
-          <View style={{flexDirection: 'column', width: '15%'}}>
+        <View style={{flexDirection: 'row', width: '94%'}}>
+          <View style={{flexDirection: 'column', width: '10%'}}>
             <Text style={styles.dogDetailTitle}> Name </Text>
             <Text style={styles.dogDetailText}> {item.item.name} </Text>
           </View>
 
-          <View style={{flexDirection: 'column', width: '40%'}}>
+          <View style={{flexDirection: 'column', width: '30%'}}>
             <Text style={styles.dogDetailTitle}> Breed </Text>
             <Text style={styles.dogDetailText}> {item.item.breed} </Text>
           </View>
@@ -80,26 +91,34 @@ const Feed = ({navigation}) => {
             <Text style={styles.dogDetailText}> {item.item.age} </Text>
           </View>
 
-          <View style={{flexDirection: 'column', width: '26%'}}>
+          <View style={{flexDirection: 'column', width: '24%'}}>
             <Text style={styles.dogDetailTitle}> Temparament </Text>
             <Text style={styles.dogDetailText}> {item.item.temparament} </Text>
           </View>
 
-          <View style={{flexDirection: 'column', width: '11%'}}>
+          <View style={{flexDirection: 'column', width: '10%'}}>
             <Text style={styles.dogDetailTitle}> Likes </Text>
             <Text style={styles.dogDetailText}>
               {Object.keys(item.item.likes).length}
             </Text>
           </View>
 
-          {/*add dog comments components here */}
-          {/*add dog replies here components here */}
+          <View style={{flexDirection: 'column', width: '18%'}}>
+            <Text
+              style={styles.dogDetailTitle}
+              onPress={() =>
+                Alert.alert('This will open the coments and their replies')
+              }>
+              Comments
+            </Text>
+            <Text style={styles.dogDetailText}>
+              {Object.keys(item.item.comments).length}
+            </Text>
+          </View>
         </View>
         <TouchableOpacity onPress={() => handleAvatarTouch(item.item.user_id)}>
           <Avatar
-            source={{
-              uri: item.item.photo.uri,
-            }}
+            source={dogOwnerIcon}
             size="small"
             style={styles.cardAvatar}
           />
@@ -142,7 +161,7 @@ const styles = StyleSheet.create({
   },
   dogDetailTitle: {
     fontWeight: 'bold',
-    fontSize: 12,
+    fontSize: 10,
     color: 'black',
     textAlignVertical: 'center',
     textAlign: 'center',
@@ -154,7 +173,7 @@ const styles = StyleSheet.create({
     flex: 0.5,
     color: 'brown',
     textAlign: 'center',
-    fontSize: 11,
+    fontSize: 9,
     textAlignVertical: 'center',
     flexWrap: 'wrap',
   },

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {useSelector} from 'react-redux';
@@ -6,10 +7,9 @@ import Loader from '../animations/Loader';
 
 const DogResultsScreen = ({navigation}) => {
   const fecthedDogs = useSelector((state) => state.allDogInfo.searchResultDogs)
-  const [data, setData] = useState (null);
-  console.log('fectched dogs in DogResultsScreen', fecthedDogs)
+  const [data, setData] = useState(null);
 
-  useEffect (() => {
+  useEffect(() => {
     setData(fecthedDogs);
   }, [fecthedDogs]);
 

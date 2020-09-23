@@ -109,7 +109,6 @@ function SignUpScreen({navigation}) {
           },
         ]);
       } else {
-        console.log(response);
         setImageFile(response);
       }
     });
