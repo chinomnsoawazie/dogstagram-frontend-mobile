@@ -10,7 +10,6 @@ import {SET_ANIMATION_START} from '../redux/actionTypes';
 const LoginSignupScreen = ({navigation}) => {
   const [handle, setHandle] = useState('@handle');
   const [password, setPassword] = useState('password');
-  const [componentLoginCheck, setComponentLoginCheck] = useState(false);
   const dispatch = useDispatch();
   const checkIfLoggedIn = useSelector(
     (state) => state.allUserInfo.checkIfLoggedIn,
@@ -23,9 +22,7 @@ const LoginSignupScreen = ({navigation}) => {
       handle: handle,
       password: password,
     };
-
     await login(user, dispatch);
-    setComponentLoginCheck(true);
   };
 
   if (checkIfLoggedIn) {
@@ -42,7 +39,6 @@ const LoginSignupScreen = ({navigation}) => {
           placeholder="@handle"
           onChangeText={(handleText) => setHandle(handleText)}
         />
-
         <TextInput
           style={styles.textInput}
           placeholder="password"
@@ -68,6 +64,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: '20%',
   },
   formContainer: {
     alignItems: 'center',
