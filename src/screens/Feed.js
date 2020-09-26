@@ -44,8 +44,9 @@ const Feed = ({navigation}) => {
     fetchData();
   }, [isRefreshing]);
 
-  const handleAvatarTouch = (dogUserID) => {
-    fetchUser(dogUserID, dispatch);
+  const handleAvatarTouch = async (dogUserID) => {
+    //needed to await the fetchUser process because we were hitting profile before the fectch was complete!
+    await fetchUser(dogUserID, dispatch);
     setIsFromFeed(dispatch);
     fetchUserDogs(dispatch, navigation, dogUserID);
   };

@@ -9,6 +9,7 @@ export const RESET_CURRENT_PROFILE = 'RESET_CURRENT_PROFILE';
 export const LOGOUT = 'LOGOUT';
 export const SET_USER_SEARCH_RESULT = 'SET_USER_SEARCH_RESULT';
 export const SET_CREATED = 'SET_CREATED';
+export const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 //DOG STUFF
 export const SET_DOGS = 'SET_DOGS';

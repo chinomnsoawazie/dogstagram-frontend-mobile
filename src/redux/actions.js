@@ -12,7 +12,10 @@ import {
   SET_USER_SEARCH_RESULT,
   SET_CREATED,
   SET_DOGS_SEARCH_RESULT,
-  SET_DOGS_FROM_FEED, SET_CURRENT_USER_DOGS, SET_IS_FROM_FEED
+  SET_DOGS_FROM_FEED,
+  SET_CURRENT_USER_DOGS,
+  SET_IS_FROM_FEED,
+  SET_USER_PROFILE
 } from './actionTypes';
 
 const ngrok = 'bb7fcf668b43.ngrok.io';
@@ -35,7 +38,7 @@ export const login = async (user, dispatch) => {
       if (!userObj.errors) {
         dispatch({type: SET_USER, payload: userObj});
         dispatch({type: SET_LOGGED_IN_CHECK, payload: true});
-        dispatch({type: SET_CURRENT_PROFILE, payload: userObj.user});
+        dispatch({type: SET_USER_PROFILE, payload: userObj.user});
         dispatch({type: SET_ANIMATION_STOP, payload: false});
 
         let userDogs = [];
@@ -163,7 +166,7 @@ export const fetchUserDogs = (dispatch, navigation, user_id) => {
       let returnedDog = [snapshot.val()];
       userDogs.push(returnedDog);
       let finalResult = [].concat.apply([], userDogs);
-      console.log('getting user dogs', finalResult);
+      // console.log('getting user dogs', finalResult);
       dispatch({type: SET_DOGS_FROM_FEED, payload: finalResult});
     });
   //set isFromFeed to be true here by dispatching to it
