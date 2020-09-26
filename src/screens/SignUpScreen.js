@@ -1,10 +1,10 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
   View,
   TextInput,
-  SafeAreaView,
   ScrollView,
   Image,
   Button,
@@ -15,12 +15,12 @@ import {useSelector, useDispatch} from 'react-redux';
 import {signup, checkHandle} from '../redux/actions';
 import ImagePicker from 'react-native-image-picker';
 function SignUpScreen({navigation}) {
-  const [name, setName] = useState('name');
-  const [handle, setHandle] = useState('handle');
-  const [city, setCity] = useState('city');
-  const [state, setState] = useState('state');
-  const [country, setCountry] = useState('country');
-  const [password, setPassword] = useState('password');
+  const [name, setName] = useState('');
+  const [handle, setHandle] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [country, setCountry] = useState('');
+  const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('confirm');
   const [imageFile, setImageFile] = useState('');
 
@@ -33,8 +33,12 @@ function SignUpScreen({navigation}) {
   );
   const checkIfCreated = useSelector((state) => state.allUserInfo.created);
 
-  const handleChange = () => {
-    checkHandle(handle, dispatch);
+  const handleHandleCheck = () => {
+    if (handle) {
+      checkHandle(handle, dispatch);
+    } else {
+      Alert.alert('Please chose a handle');
+    }
   };
 
   const handleSubmit = async () => {
@@ -132,108 +136,136 @@ function SignUpScreen({navigation}) {
   };
 
   return (
-    <SafeAreaView SafeAreaView style={styles.container}>
+    <View
+      style={
+        imageFile && confirm !== password ? styles.container2 : styles.container
+      }>
       <Text style={styles.headertext}>Signup</Text>
-      <ScrollView
-        style={styles.scrollview}
-        scrollsToTop="true"
-        pinchGestureEnabled="true"
-        overScrollMode="true">
-        <View style={styles.formContainer}>
-          <TextInput
-            style={styles.textInput}
-            placeholder="name"
-            onChangeText={(chosenName) => setName(chosenName)}
-          />
+      <View style={styles.scrollview}>
+        <ScrollView
+          // scrollsToTop="true"
+          pinchGestureEnabled="true"
+          overScrollMode="true">
+          <View style={styles.formContainer}>
+            <TextInput
+              style={styles.textInput}
+              placeholder="name"
+              onChangeText={(chosenName) => setName(chosenName)}
+            />
 
-          <Button
-            color="blue"
-            title="Upload profile pic"
-            onPress={() => selectImage()}
-          />
+            {imageFile ? 
+              <Button
+                color="white"
+                title="Change profile pic"
+                onPress={() => selectImage()}
+              />
+            :
+              <Button
+                color="white"
+                title="Select profile pic"
+                onPress={() => selectImage()}
+              />
+          }
 
-          <Image
-            source={{uri: imageFile.uri}}
-            style={{width: 100, height: 100, justifyContent: 'center'}}
-          />
 
-          <TextInput
-            style={styles.textInput}
-            placeholder="@handle"
-            onChangeText={(handle) => setHandle(handle)}
-          />
+            <Image
+              source={{uri: imageFile.uri}}
+              style={{
+                width: 100,
+                height: 100,
+                alignSelf: 'center',
+                justifyContent: 'center',
+              }}
+            />
 
-          <Button
-            color="blue"
-            title="Check handle availability"
-            onPress={() => handleChange()}
-          />
+            <TextInput
+              style={styles.textInput}
+              placeholder="@handle"
+              onChangeText={(chosenHandle) => setHandle(chosenHandle)}
+            />
 
-          <Text style={{textAlign: 'center'}}>{showHandleChecked()}</Text>
+            <Button
+              color="white"
+              title="Check handle availability"
+              onPress={() => handleHandleCheck()}
+            />
 
-          <TextInput
-            style={styles.textInput}
-            placeholder="city"
-            onChangeText={(city) => setCity(city)}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="state"
-            onChangeText={(state) => setState(state)}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="country"
-            onChangeText={(country) => setCountry(country)}
-          />
+            <Text style={{textAlign: 'center', color: 'white'}}>{showHandleChecked()}</Text>
 
-          <TextInput
-            style={styles.textInput}
-            placeholder="password"
-            secureTextEntry={true}
-            onChangeText={(password) => setPassword(password)}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="confirm password"
-            secureTextEntry={true}
-            onChangeText={(confirm) => setConfirm(confirm)}
-          />
+            <TextInput
+              style={styles.textInput}
+              placeholder="city"
+              onChangeText={(city) => setCity(city)}
+            />
+            <TextInput
+              style={styles.textInput}
+              placeholder="state"
+              onChangeText={(state) => setState(state)}
+            />
+            <TextInput
+              style={styles.textInput}
+              placeholder="country"
+              onChangeText={(country) => setCountry(country)}
+            />
 
-          <Text>
-            {password === confirm ? 'Passwords match' : 'Password dont match'}
-          </Text>
-        </View>
+            <TextInput
+              style={styles.textInput}
+              placeholder="password"
+              secureTextEntry={true}
+              onChangeText={(password) => setPassword(password)}
+            />
+            <TextInput
+              style={styles.textInput}
+              placeholder="confirm password"
+              secureTextEntry={true}
+              onChangeText={(confirm) => setConfirm(confirm)}
+            />
+            <Text style={{color: 'white', alignSelf: 'center'}}>
+              {password === confirm
+                ? 'Passwords match'
+                : "Passwords don't match"}
+            </Text>
+          </View>
 
-        <View style={styles.submitContainer}>
-          <Button
-            color="blue"
-            title="Create account"
-            onPress={() => handleSubmit()}
-          />
+          <View style={styles.submitContainer}>
+            <Button
+              color="white"
+              title="Create account"
+              onPress={() => handleSubmit()}
+            />
 
-          <Button
-            color="brown"
-            title="Back to login"
-            onPress={() => navigation.navigate('LoginSignupScreen')}
-          />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+            <Button
+              color="white"
+              title="Back to login"
+              onPress={() => navigation.navigate('LoginSignupScreen')}
+            />
+          </View>
+        </ScrollView>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffc4b0',
+    backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
-    // marginTop: Constants.statusBarHeight,
+    marginTop: '25%',
+  },
+  container2: {
+    flex: 1,
+    backgroundColor: 'blue',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '25%',
+    marginBottom: '100%',
   },
   submitContainer: {
-    top: 10,
-    paddingHorizontal: 10,
+    alignSelf: 'center',
+    marginBottom: 30,
+    flexDirection: 'row',
   },
   textInput: {
     marginTop: 20,
@@ -245,14 +277,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   headertext: {
-    color: 'blue',
+    color: 'white',
     fontSize: 48,
     fontWeight: 'bold',
-    marginTop: 30,
+    marginTop: '12%',
   },
   scrollView: {
-    backgroundColor: 'pink',
+    backgroundColor: 'blue',
     marginHorizontal: 20,
+    marginBottom: '60',
   },
 });
 

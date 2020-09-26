@@ -1,23 +1,39 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable jsx-quotes */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, SafeAreaView, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {Avatar, Button} from 'react-native-ui-kitten';
-import {logout} from '../redux/actions';
+import {resetIsFromFeed} from '../redux/actions';
 
-import ProfileDogs from '../components/ProfileDogs'
+import ProfileDogs from '../components/ProfileDogs';
 const Profile = ({navigation}) => {
+  //TODO
+  const dogsFromFeed = useSelector((state) => state.allDogInfo.dogsFromFeed);
+  const currentUserDogs = useSelector(
+    (state) => state.allDogInfo.currentUserDogs,
+  );
+  const isFromFeed = useSelector((state) => state.allDogInfo.isFromFeed);
   const profile = useSelector((state) => state.allUserInfo.currentProfile);
   const dispatch = useDispatch();
   const ngrok = 'bb7fcf668b43.ngrok.io';
   const checkIfLoggedIn = useSelector(
     (state) => state.allUserInfo.checkIfLoggedIn,
   );
-  const dogs = useSelector((state) => state.allDogInfo.allDogs);
+  const [dogsAreFromFeed, setDogsAreFromFeed] = useState('');
+
+  useEffect(() => {
+    if (isFromFeed) {
+      setDogsAreFromFeed(dogsFromFeed);
+      console.log('entering profile');
+    }
+    return () => {
+      resetIsFromFeed(dispatch);
+      console.log('leaving profile');
+    };
+  }, []);
 
   const handleLogout = () => {
-    logout(dispatch);
     navigation.navigate('LoginSignupScreen');
   };
 
@@ -45,12 +61,12 @@ const Profile = ({navigation}) => {
         <View style={styles.bordered}>
           <View Views style={styles.userInfo}>
             <View style={styles.section}>
-              <Text style={styles.space}>4</Text>
+              <Text style={styles.space}>{profile.dogs.length}</Text>
               <Text style={styles.space2}>Dogs</Text>
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.space}>0</Text>
+              <Text style={styles.space}>{profile.followers.length}</Text>
               <Text style={styles.space2}>Followers</Text>
             </View>
 
@@ -60,25 +76,26 @@ const Profile = ({navigation}) => {
             </View>
           </View>
         </View>
+        {isFromFeed ? null : (
+          <View style={styles.buttons}>
+            <Button
+              style={styles.button}
+              appearance="ghost"
+              status="danger"
+              onPress={() => handleLogout()}>
+              LOGOUT
+            </Button>
 
-        <View style={styles.buttons}>
-          <Button
-            style={styles.button}
-            appearance="ghost"
-            status="danger"
-            onPress={() => handleLogout()}>
-            LOGOUT
-          </Button>
+            <View style={styles.separator} />
 
-          <View style={styles.separator} />
-
-          <Button style={styles.button} appearance="ghost" status="danger">
-            MESSAGE
-          </Button>
-        </View>
+            <Button style={styles.button} appearance="ghost" status="danger">
+              MESSAGE
+            </Button>
+          </View>
+        )}
       </View>
       <View style={styles.dogsContainer}>
-        <ProfileDogs items={dogs} />
+        <ProfileDogs items={isFromFeed ? dogsAreFromFeed : currentUserDogs} />
       </View>
     </SafeAreaView>
   );

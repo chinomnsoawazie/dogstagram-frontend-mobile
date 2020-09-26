@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Image,
   View,
@@ -18,7 +18,8 @@ import {v4 as uuidv4} from 'uuid';
 
 import {dogBreeds} from '../components/DogBreeds';
 import {range} from '../utils/HandyTools';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {createBackendDog} from '../redux/actions';
 
 const AddDog = ({navigation}) => {
   const [image, setImage] = useState(null);
@@ -27,6 +28,12 @@ const AddDog = ({navigation}) => {
   const [age, setAge] = useState('no selection yet');
   const [temparament, setTemparament] = useState('no selection yet');
   const user_id = useSelector((state) => state.allUserInfo.user.user.id);
+  const dispatch = useDispatch();
+  const [userID, setUserID] = useState('');
+
+  useEffect(() => {
+    setUserID(user_id);
+  }, [user_id]);
 
   const selectImage = () => {
     const options = {
@@ -86,7 +93,7 @@ const AddDog = ({navigation}) => {
     const id = uuidv4();
     const dogForUpload = {
       id: id,
-      user_id: user_id,
+      user_id: userID,
       name: name,
       breed: breed,
       age: age,
@@ -115,6 +122,7 @@ const AddDog = ({navigation}) => {
           },
           {
             text: 'Share another dog',
+            onPress: () => resetStates(),
           },
           {
             text: 'Go To Profile',
@@ -122,6 +130,16 @@ const AddDog = ({navigation}) => {
           },
         ]),
       );
+
+    let dogForBackend = {
+      user_id: userID,
+      name: name,
+      breed: breed,
+      age: age,
+      temparament: temparament,
+    };
+
+    createBackendDog(dispatch, dogForBackend);
   };
 
   //Placeholders
@@ -195,7 +213,12 @@ const AddDog = ({navigation}) => {
       {/* Image Container */}
       <View style={styles.imageContainer}>
         {image ? (
-          <Image source={image} style={styles.image} />
+          <>
+            <Image source={image} style={styles.image} />
+            <Button onPress={() => selectImage()} style={styles.buttons}>
+              Change dog image
+            </Button>
+          </>
         ) : (
           <Button onPress={() => selectImage()} style={styles.buttons}>
             Add dog image
@@ -229,6 +252,7 @@ const AddDog = ({navigation}) => {
             placeholder="Type in unique dog name"
             style={styles.textInput}
             value={name}
+            maxLength={8}
             onChangeText={(nameText) => setName(nameText)}
           />
         </View>

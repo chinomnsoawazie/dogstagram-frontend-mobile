@@ -9,10 +9,10 @@ import {
   SET_CURRENT_PROFILE,
   SET_ANIMATION_STOP,
   RESET_CURRENT_PROFILE,
-  LOGOUT,
-  SET_DOGS,
   SET_USER_SEARCH_RESULT,
-  SET_CREATED, SET_DOGS_SEARCH_RESULT
+  SET_CREATED,
+  SET_DOGS_SEARCH_RESULT,
+  SET_DOGS_FROM_FEED, SET_CURRENT_USER_DOGS, SET_IS_FROM_FEED
 } from './actionTypes';
 
 const ngrok = 'bb7fcf668b43.ngrok.io';
@@ -37,6 +37,19 @@ export const login = async (user, dispatch) => {
         dispatch({type: SET_LOGGED_IN_CHECK, payload: true});
         dispatch({type: SET_CURRENT_PROFILE, payload: userObj.user});
         dispatch({type: SET_ANIMATION_STOP, payload: false});
+
+        let userDogs = [];
+        database()
+          .ref('dogs')
+          .orderByChild('user_id')
+          .equalTo(userObj.user.id)
+          .on('child_added', function (snapshot) {
+            let returnedDog = [snapshot.val()];
+            userDogs.push(returnedDog);
+            let finalResult = [].concat.apply([], userDogs);
+            console.log('getting user dogs at login', finalResult);
+            dispatch({type: SET_CURRENT_USER_DOGS, payload: finalResult});
+          });
       } else {
         Alert.alert(
           'Login Error',
@@ -103,20 +116,11 @@ export const signup = (user, dispatch) => {
 export const fetchUser = async (dogUserID, dispatch) => {
   await axios.get(`http://${ngrok}/users/${dogUserID}`).then((fetchedUser) => {
     dispatch({type: SET_CURRENT_PROFILE, payload: fetchedUser.data.user});
-    dispatch({type: SET_ANIMATION_STOP, payload: false});
   });
 };
 
 export const resetCurrentProfile = (dispatch) => {
   dispatch({type: RESET_CURRENT_PROFILE, payload: null});
-};
-
-export const logout = (dispatch) => {
-  dispatch({type: LOGOUT});
-};
-
-export const setDogsToReduxStore = (dogs, dispatch) => {
-  dispatch({type: SET_DOGS, payload: dogs});
 };
 
 export const searchForUsersFromRailsBackend = async (dispatch, searchTerm) => {
@@ -147,4 +151,45 @@ export const searchForDogsFromFirebase = (dispatch, searchTerm) => {
       let finalResult = [].concat.apply([], currentDogs);
       dispatch({type: SET_DOGS_SEARCH_RESULT, payload: finalResult});
     });
+};
+
+export const fetchUserDogs = (dispatch, navigation, user_id) => {
+  let userDogs = [];
+  database()
+    .ref('dogs')
+    .orderByChild('user_id')
+    .equalTo(user_id)
+    .on('child_added', function (snapshot) {
+      let returnedDog = [snapshot.val()];
+      userDogs.push(returnedDog);
+      let finalResult = [].concat.apply([], userDogs);
+      console.log('getting user dogs', finalResult);
+      dispatch({type: SET_DOGS_FROM_FEED, payload: finalResult});
+    });
+  //set isFromFeed to be true here by dispatching to it
+  navigation.navigate('Profile');
+};
+
+export const createBackendDog = (dispatch, dog) => {
+  axios
+    .post(`http://${ngrok}/dogs`, dog)
+    .then((userAfterDogCreation) => {
+      console.log('User after dog creation', userAfterDogCreation.data);
+      dispatch({type: SET_USER, payload: userAfterDogCreation.data});
+      dispatch({
+        type: SET_CURRENT_PROFILE,
+        payload: userAfterDogCreation.data.user,
+      });
+    })
+    .catch((error) => {
+      console.log('Error: ', error);
+    });
+};
+
+export const setIsFromFeed = (dispatch) => {
+  dispatch({type: SET_IS_FROM_FEED, payload: true});
+};
+
+export const resetIsFromFeed = (dispatch) => {
+  dispatch({type: SET_IS_FROM_FEED, payload: false});
 };

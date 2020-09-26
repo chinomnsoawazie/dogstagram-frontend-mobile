@@ -9,17 +9,17 @@ export const FeedNavigator = createAppContainer(
     Feed: {
       screen: Feed,
       navigationOptions: {
-        headerTitle: 'Home',
+        headerTitle: 'Feed',
         headerTitleAlign: 'center',
       },
     },
-    // Profile: {
-    //   screen: Profile,
-    //   navigationOptions: {
-    //     headerTitle: 'Dog Owner',
-    //     headerTitleAlign: 'center',
-    //   },
-    // },
+    Profile: {
+      screen: Profile,
+      navigationOptions: {
+        headerTitle: 'Dog Owner',
+        headerTitleAlign: 'center',
+      },
+    },
   }),
 );
 

@@ -11,10 +11,8 @@ import {
 import {Avatar, List} from 'react-native-ui-kitten';
 import {useDispatch} from 'react-redux';
 import database from '@react-native-firebase/database';
-
-import {SET_ANIMATION_START} from '../redux/actionTypes';
 import Loader from '../animations/Loader';
-import {fetchUser, setDogsToReduxStore} from '../redux/actions';
+import {fetchUser, fetchUserDogs, setIsFromFeed} from '../redux/actions';
 import dogOwnerIcon from '../utils/dogOwnerIcon.png';
 
 const Feed = ({navigation}) => {
@@ -36,7 +34,6 @@ const Feed = ({navigation}) => {
               allDogs.push(returnedDogs[thisDog]);
             });
             setData(allDogs);
-            setDogsToReduxStore(allDogs, dispatch);
             setIsRefreshing(false);
           } else {
             setData(allDogs);
@@ -49,8 +46,8 @@ const Feed = ({navigation}) => {
 
   const handleAvatarTouch = (dogUserID) => {
     fetchUser(dogUserID, dispatch);
-    dispatch({type: SET_ANIMATION_START, payload: true});
-    navigation.navigate('Profile');
+    setIsFromFeed(dispatch);
+    fetchUserDogs(dispatch, navigation, dogUserID);
   };
 
   const onRefresh = () => {

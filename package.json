@@ -15,6 +15,7 @@
     "@react-native-community/picker": "^1.7.1",
     "@react-native-firebase/app": "^8.4.1",
     "@react-native-firebase/database": "^7.5.4",
+    "@react-navigation/bottom-tabs": "^5.9.0",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
     "@ui-kitten/components": "^5.0.0",
