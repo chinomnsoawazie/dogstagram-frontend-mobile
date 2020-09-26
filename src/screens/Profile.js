@@ -7,7 +7,6 @@ import {Avatar, Button} from 'react-native-ui-kitten';
 import {resetIsFromFeed} from '../redux/actions';
 
 import ProfileDogs from '../components/ProfileDogs';
-import Loader from '../animations/Loader';
 const Profile = () => {
   const dispatch = useDispatch();
   const ngrok = 'bb7fcf668b43.ngrok.io';
@@ -28,11 +27,8 @@ const Profile = () => {
 
   const isFromFeed = useSelector((state) => state.allDogInfo.isFromFeed);
 
-  // const [profileToUse, setProfileToUse] = useState('');
-
-  // console.log('Profile to use', profileToUse);
-
   useEffect(() => {
+    //All useEffect is doing is to use the cleanup stage (equivalent to componentWillUnmout) to reset the isFromFeed property
     return () => {
       resetIsFromFeed(dispatch);
       console.log('leaving profile');
@@ -77,11 +73,19 @@ const Profile = () => {
               </View>
             </View>
           </View>
-          <View style={styles.buttons}>
-            <Button style={styles.button} appearance="ghost" status="danger">
-              SEND MESSAGE
-            </Button>
-          </View>
+          {profileFromFeed.id === loggedInUserProfile.id ? (
+            <View style={styles.buttons}>
+              <Button style={styles.button} appearance="ghost" status="danger">
+                CHECK MESSAGE
+              </Button>
+            </View>
+          ) : (
+            <View style={styles.buttons}>
+              <Button style={styles.button} appearance="ghost" status="danger">
+                SEND MESSAGE
+              </Button>
+            </View>
+          )}
         </View>
         <View style={styles.dogsContainer}>
           <ProfileDogs items={dogsFromFeed} />
