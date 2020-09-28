@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable jsx-quotes */
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, SafeAreaView, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {Avatar, Button} from 'react-native-ui-kitten';
@@ -26,6 +26,7 @@ const Profile = () => {
   );
 
   const isFromFeed = useSelector((state) => state.allDogInfo.isFromFeed);
+  console.log('User Profile Photo URL', loggedInUserProfile.photo_url );
 
   useEffect(() => {
     //All useEffect is doing is to use the cleanup stage (equivalent to componentWillUnmout) to reset the isFromFeed property

@@ -50,7 +50,6 @@ export const login = async (user, dispatch) => {
             let returnedDog = [snapshot.val()];
             userDogs.push(returnedDog);
             let finalResult = [].concat.apply([], userDogs);
-            console.log('getting user dogs at login', finalResult);
             dispatch({type: SET_CURRENT_USER_DOGS, payload: finalResult});
           });
       } else {
@@ -108,7 +107,7 @@ export const signup = (user, dispatch) => {
   })
     .then((response) => response.json())
     .then((userObj) => {
-      dispatch({type: SET_USER, payload: userObj});
+      Alert.alert('Account successfully created 🎉');
       dispatch({type: SET_CREATED, payload: true});
     })
     .catch((error) => {
@@ -166,7 +165,6 @@ export const fetchUserDogs = (dispatch, navigation, user_id) => {
       let returnedDog = [snapshot.val()];
       userDogs.push(returnedDog);
       let finalResult = [].concat.apply([], userDogs);
-      // console.log('getting user dogs', finalResult);
       dispatch({type: SET_DOGS_FROM_FEED, payload: finalResult});
     });
   //set isFromFeed to be true here by dispatching to it
@@ -177,7 +175,6 @@ export const createBackendDog = (dispatch, dog) => {
   axios
     .post(`http://${ngrok}/dogs`, dog)
     .then((userAfterDogCreation) => {
-      console.log('User after dog creation', userAfterDogCreation.data);
       dispatch({type: SET_USER, payload: userAfterDogCreation.data});
       dispatch({
         type: SET_CURRENT_PROFILE,
