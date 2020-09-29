@@ -150,7 +150,6 @@ const Profile = () => {
 const styles = StyleSheet.create({
   root: {
     backgroundColor: '#ffffff',
-    // marginTop: 10,
   },
   header: {
     alignItems: 'center',

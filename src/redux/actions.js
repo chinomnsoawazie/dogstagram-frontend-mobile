@@ -143,7 +143,7 @@ export const searchForDogsFromFirebase = (dispatch, searchTerm) => {
   database()
     .ref('dogs')
     .orderByKey()
-    .startAt(`${searchTerm}`)
+    .startAt(`${searchTerm}\uf8ff`)
     .endAt(`${searchTerm}\uf8ff`)
     .on('child_added', function (snapshot) {
       let returnedDog = [snapshot.val()];
