@@ -26,7 +26,6 @@ const Profile = () => {
   );
 
   const isFromFeed = useSelector((state) => state.allDogInfo.isFromFeed);
-  console.log('User Profile Photo URL', loggedInUserProfile.photo_url );
 
   useEffect(() => {
     //All useEffect is doing is to use the cleanup stage (equivalent to componentWillUnmout) to reset the isFromFeed property
