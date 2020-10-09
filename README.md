@@ -1,5 +1,4 @@
 <p align="center">
- <a href="https://github.com/chinomnsoawazie/AfroPanTrack-frontend">
  <img width="30%" src="https://github.com/chinomnsoawazie/dogstagram-frontweb-mobile/blob/master/src/utils/DogStagramLogo2.png" style="max-width:50%;">
  </a>
 </p>
