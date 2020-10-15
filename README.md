@@ -210,8 +210,7 @@
    <h2 id="external-dataset">External datatset</h2>
     <p>
  <ul>
-  <li><a href="https://developer.usajobs.gov/API-Reference/GET-api-Search">USAJobs API</a></li>
-  <li><a href="https://developers.google.com/maps/documentation/geocoding/start"> Google geocoding API:</a> Gives the City and State of user based on device GPS</li>
+  <li><a href="https://firebase.google.com/"> Firebase:</a> Google cloud-based database system</li>
 </ul>
 </p>
 
@@ -226,8 +225,8 @@
  <ul>
   <li>Adding IBM Watson to add AI capabilities for registered(those that created accounts) user behaviours</li>
   <li>Implement OAuth 2.0 to enable logging in using social media accounts</li>
-  <li>Implement reminders for tasks</li>
    <li>Integrate app with device programs like calenders, alarms, reminders, etc</li>
+ <li>Make a commercial version</li>
 
  </ul>
 </p>
