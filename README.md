@@ -206,6 +206,47 @@
  
 <a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
 
+<h1 id="summary-of-files">Summary of files</h1>
+   <h2 id="external-dataset">External datatset</h2>
+    <p>
+ <ul>
+  <li><a href="https://developer.usajobs.gov/API-Reference/GET-api-Search">USAJobs API</a></li>
+  <li><a href="https://developers.google.com/maps/documentation/geocoding/start"> Google geocoding API:</a> Gives the City and State of user based on device GPS</li>
+</ul>
+</p>
+
+<a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+
+
+
+
+ <h1 id="planned-improvements">Planned improvements</h1>
+    <p>  Some of the planned improvements include;
+
+ <ul>
+  <li>Adding IBM Watson to add AI capabilities for registered(those that created accounts) user behaviours</li>
+  <li>Implement OAuth 2.0 to enable logging in using social media accounts</li>
+  <li>Implement reminders for tasks</li>
+   <li>Integrate app with device programs like calenders, alarms, reminders, etc</li>
+
+ </ul>
+</p>
+
+<a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+
+
+ <h1 id="contact">Contacts</h1>
+    <p>
+ <ul>
+  <li><a href="coawazie@gmail.com">Email</a></li>
+  <li><a href="https://www.linkedin.com/in/chinomnsoawazie/">LinkedIn</a></li>
+  <li><a href="https://twitter.com/COAwazie">Twitter</a></li>
+  <li><a href="https://medium.com/coffee-software">Medium</a></li>
+ </ul>
+</p>
+
+<a href="#table-of-contents"> <img src="https://img.shields.io/badge/-Back%20To%20Table%20of%20Contents-lightgrey" style="max-width:50%;"></a>
+
 
   
   
