@@ -253,11 +253,6 @@
   <h1 id="credits">Credits</h1>
     <p>
  <ul>
-  <li><a href="https://jwt.io/introduction/">JWT Auth</a></li>
-  <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
-  <li><a href="https://rubyonrails.org/">Rails</a></li>
-  <li><a href="https://rubygems.org/gems/dotenv-rails/versions/2.7.5">dotenv-rails</a></li>
-  <li><a href="https://rubygems.org/gems/bcrypt/versions/3.1.7">Bcrypt</a></li>
   <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   <li><a href="https://aws.amazon.com/s3/">AWS S3</a></li>
   <li><a href="https://firebase.google.com/docs/database">Firebase Realtime Database</a></li>
