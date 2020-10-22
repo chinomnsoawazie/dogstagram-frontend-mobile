@@ -253,7 +253,6 @@
   <h1 id="credits">Credits</h1>
     <p>
  <ul>
-  <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   <li><a href="https://aws.amazon.com/s3/">AWS S3</a></li>
   <li><a href="https://firebase.google.com/docs/database">Firebase Realtime Database</a></li>
   <li><a href="https://reactnative.dev/">React Native</a></li>
