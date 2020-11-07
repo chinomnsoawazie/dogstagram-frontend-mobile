@@ -226,6 +226,8 @@
   <li>Adding IBM Watson to add AI capabilities for registered(those that created accounts) user behaviours</li>
   <li>Implement OAuth 2.0 to enable logging in using social media accounts</li>
    <li>Integrate app with device programs like calenders, alarms, reminders, etc</li>
+    <li>Use range of firebase products for all backend services</li>
+
  <li>Make a commercial version</li>
 
  </ul>
